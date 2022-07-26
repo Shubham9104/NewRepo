@@ -81,14 +81,17 @@ namespace LibraryManagement1
             do
             {
                 Console.WriteLine("");
-                Console.WriteLine("---------------------------------------------");
-                Console.WriteLine("|        Please make a choice from the following  |");
+                Console.WriteLine("---------------------------------------------------");
+                Console.WriteLine("|       Please make a choice from the following   |");
                 Console.WriteLine("|1.Search Books                                   |");
                 Console.WriteLine("|2.Return Books                                   |");
                 Console.WriteLine("|3.Borrow Books                                   |");
                 Console.WriteLine("|4.Renew a Book                                   |");
                 Console.WriteLine("|5.View book Issue Details                        |");
-                Console.WriteLine("|6.Return to main menu                            |");
+                Console.WriteLine("|6.Read Newspaper                                 |");
+                Console.WriteLine("|7.Borrow Newspaper                               |");
+                Console.WriteLine("|8.View borrowed Newspaper Details                |");
+                Console.WriteLine("|9.Return to main menu                            |");
                 Console.WriteLine("");
                 int ch = int.Parse(Console.ReadLine());
 
@@ -131,9 +134,26 @@ namespace LibraryManagement1
                         f.Details();
                         break;
                     case 6:
-
+                        Console.WriteLine("Enter the name of the newspaper");
+                        String _name = Console.ReadLine();
+                        bool s = f.searchB(_name);
+                        if (s == true)
+                            Console.WriteLine("Newspaper found!!");
+                        else
+                            Console.WriteLine("Newspaper not found!!");
+                        break;
+                    case 7:
+                        Console.WriteLine("Enter the name of the book");
+                        String c = Console.ReadLine();
+                        Console.WriteLine("Enter the issue date");
+                        DateTime d = Convert.ToDateTime(Console.ReadLine());
+                        f.borrow(c, d);
+                        break;
+                    case 8:
+                        f.Details();
+                        break;
+                    case 9:
                         return;
-
 
 
                 }
